@@ -49,6 +49,6 @@ source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+VIRTUALENVWRAPPER_PYTHON='/opt/homebrew/bin/python3'
 export WORKON_HOME=$HOME/.envs
-source /usr/local/bin/virtualenvwrapper.sh
+source /opt/homebrew/bin/virtualenvwrapper.sh
