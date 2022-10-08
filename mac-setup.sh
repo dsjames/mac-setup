@@ -68,7 +68,6 @@ apps=(
   microsoft-office
   microsoft-teams
   microsoft-remote-desktop
-  cleanmymac
   istat-menus
   1password
   visual-studio-code
