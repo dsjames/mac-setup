@@ -2,6 +2,8 @@
 # Ask for the administrator password upfront.
 sudo -v
 
+chsh -s /bin/zsh
+
 eval $(/opt/homebrew/bin/brew shellenv)
 
 #Install Rosetta 2
@@ -33,15 +35,10 @@ brew cleanup
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
-#Install x86 homebrew & Python
+#Install Python
 
-if [ "$arch" == "arm64" ]; then
-  arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  alias ibrew="arch -x86_64 /usr/local/bin/brew"
-  ibrew install python@3.9
-else
-  brew install python@3.9
-fi
+echo "Installing Python"
+brew install python
 
 # Install Powerline fonts
 echo "Installing Powerline fonts..."
@@ -71,6 +68,8 @@ apps=(
   vlc
   microsoft-office
   microsoft-teams
+  microsoft-remote-desktop
+  cleanmymac
   istat-menus
   1password
   visual-studio-code
@@ -81,6 +80,13 @@ apps=(
 echo "installing apps with Cask..."
 brew install --cask --appdir="/Applications" ${apps[@]}
 
+echo "Enable auto updating"
+brew install terminal-notifier
+brew tap homebrew/autoupdate
+mkdir -p ~/Library/LaunchAgents
+brew autoupdate start --enable-notification
+
+
 #Install mas-cli
 brew install mas
 
@@ -90,8 +96,8 @@ brew install speedtest --force
 
 brew cleanup
 
-#Install Todo
-mas install 1212616790
+#Install microsoft To-do
+mas install 1274495053
 
 #Install Amphetamine
 mas install 937984704
@@ -105,8 +111,8 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 #Install Python Virtual Environment
 
-pip install virtualenv
-pip install virtualenvwrapper
+pip3 install virtualenv
+pip3 install virtualenvwrapper
 mkdir .envs
 
 #Copy .zshrc from github
@@ -114,4 +120,5 @@ mkdir .envs
 echo "Copying dotfiles from Github"
 cd ~
 curl https://raw.githubusercontent.com/dsjames/mac-setup/main/.zshrc > .zshrc
-source $HOME/.zshrc
+
+echo "All done"
