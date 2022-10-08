@@ -53,9 +53,8 @@ brew install romkatv/powerlevel10k/powerlevel10k
 #echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
 echo "Setting up Zsh plugins..."
-cd ~/.oh-my-zsh/custom/plugins
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-git clone git://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 
 # Apps
@@ -83,8 +82,7 @@ brew install --cask --appdir="/Applications" ${apps[@]}
 echo "Enable auto updating"
 brew install terminal-notifier
 brew tap homebrew/autoupdate
-mkdir -p ~/Library/LaunchAgents
-brew autoupdate start --enable-notification
+brew autoupdate –start –upgrade –enable-notification
 
 
 #Install mas-cli
