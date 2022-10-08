@@ -2,10 +2,6 @@
 # Ask for the administrator password upfront.
 sudo -v
 
-#Install Oh My Zsh
-echo "Installing Oh My ZSH..."
-curl -L http://install.ohmyz.sh | sh
-
 eval $(/opt/homebrew/bin/brew shellenv)
 
 #Install Rosetta 2
@@ -32,6 +28,10 @@ brew update
 
 echo "Cleaning up brew"
 brew cleanup
+
+#Install Oh My Zsh
+echo "Installing Oh My ZSH..."
+curl -L http://install.ohmyz.sh | sh
 
 #Install x86 homebrew & Python
 
