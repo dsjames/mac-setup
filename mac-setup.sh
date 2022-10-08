@@ -67,7 +67,6 @@ apps=(
   bartender
   bettertouchtool
   google-chrome
-  spotify
   iterm2
   vlc
   microsoft-office
@@ -91,8 +90,8 @@ brew install speedtest --force
 
 brew cleanup
 
-#Install Todoist
-mas install 585829637
+#Install Todo
+mas install 1212616790
 
 #Install Amphetamine
 mas install 937984704
